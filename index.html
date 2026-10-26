@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>ZARA · Supply network</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main">Saltar al contenido</a>
+    <!-- Navegación por agentes de la cadena de suministro. -->
+    <aside class="sidebar">
+      <div class="brand">ZARA<span>SUPPLY NETWORK</span></div>
+      <div class="workspace">COORDINACIÓN · ARTEIXO</div>
+      <nav id="agents" aria-label="Agentes de la red"></nav>
+      <div class="side-bottom">
+        <div class="live"><i></i> Prototipo · estado compartido</div>
+      </div>
+    </aside>
+    <div class="app">
+      <!-- Cabecera del pedido y descarga de datos. -->
+      <header>
+        <div class="header-top">
+          <div class="header-order">
+            Espacio de producción <span>/</span> <strong>JP-TKO-261026</strong>
+          </div>
+          <div class="header-right">
+            <button id="reset-example" type="button" data-action="reset">
+              Reiniciar ejemplo
+            </button>
+            <button id="export">Exportar datos ↓</button>
+          </div>
+        </div>
+        <!-- Navegación global: solo Operación depende del agente seleccionado. -->
+        <nav class="tabs" aria-label="Secciones del pedido">
+          <button data-tab="operation" class="active">Operación</button>
+          <button data-tab="timeline">Trazabilidad</button>
+          <button data-tab="shared">Inteligencia compartida</button>
+        </nav>
+      </header>
+      <main id="main">
+        <div class="breadcrumb">
+          <p>RED DE APROVISIONAMIENTO - PEDIDO ACEPTADO</p>
+        </div>
+        <div class="title-row">
+          <div>
+            <h1 id="title"></h1>
+            <p id="subtitle"></p>
+          </div>
+          <div class="datebox">
+            <small>ENTREGA COMPROMETIDA</small
+            ><strong>09 nov 2026 <span>· Tokio</span></strong>
+          </div>
+        </div>
+        <!-- Resumen fijo del pedido para todas las vistas. -->
+        <section class="order-strip">
+          <div class="garment" aria-hidden="true">
+            <svg viewBox="0 0 60 70">
+              <path d="M14 7h32l5 48-19 3-2-27-2 27-19-3z" />
+              <path d="M14 13h32M30 7v24M16 16q1 10-5 12M44 16q-1 10 5 12" />
+            </svg>
+          </div>
+          <div>
+            <small>MODELO CP-026 · COLECCIÓN CÁPSULA</small>
+            <h2>Pantalón pirata de algodón</h2>
+            <p>
+              Azul noche · 100 % algodón · Tienda solicitante: Tokio / Yukiko
+              Tanaka
+            </p>
+          </div>
+          <div class="order-qty">
+            <strong>1.200</strong><span>prendas · XS–XL</span>
+          </div>
+          <span class="pill" id="status">● Aprovisionamiento</span>
+        </section>
+
+        <!-- Las vistas de operación, trazabilidad e inteligencia se insertan desde app.js. -->
+        <div id="content"></div>
+        <footer>
+          Prototipo académico · Empresas, fechas y cifras simuladas.
+        </footer>
+      </main>
+    </div>
+    <!-- Avisos accesibles con anuncio de cambios y cierre manual. -->
+    <div class="toast" id="toast">
+      <span
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+        id="toast-message"
+      ></span
+      ><button id="toast-close" aria-label="Cerrar aviso" type="button">
+        ×
+      </button>
+    </div>
+    <script src="scm.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
